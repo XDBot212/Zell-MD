@@ -1,0 +1,57 @@
+let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
+let url = 'https://telegra.ph/file/05913b2cba97d6f59b452.jpg'
+let zell = `${global.namebot}`
+let text = `┏❏═┅═━–〈 *Sewa & Premium*
+┊
+❏═┅═━–〈 *Harga Sewa*
+┊•
+┊• 15 ʜᴀʀɪ 10ᴋ / ɢʀᴏᴜᴘ
+┊• 30 ʜᴀʀɪ 15ᴋ / ɢʀᴏᴜᴘ
+┊• 45 ʜᴀʀɪ 25ᴋ / ɢʀᴏᴜᴘ
+┊• 60 ʜᴀʀɪ 30ᴋ / ɢʀᴏᴜᴘ
+┊• ᴘᴇʀᴍᴀɴᴇɴ 35ᴋ / ɢʀᴏᴜᴘ 
+┊
+┗––––––––––✦ *${zell}*
+
+┏❏═┅═━–〈 *Harga Premium*
+┊
+┊• 15 ʜᴀʀɪ 10ᴋ 
+┊• 30 ʜᴀʀɪ 15ᴋ 
+┊• 45 ʜᴀʀɪ 25ᴋ 
+┊• 60 ʜᴀʀɪ 30ᴋ 
+┊• ᴘᴇʀᴍᴀɴᴇɴ 35ᴋ
+┊
+┗––––––––––✦ *${zell}*
+
+┏❏═┅═━–〈 *ꜰɪᴛᴜʀ 800+*
+┊•
+┊• *Welcome*
+┊• *Kick*
+┊• *Antilink*
+┊• *Stiker*
+┊• *Sound*
+┊• *Anime*
+┊• *Send Virtext*
+┊• *Send Bug*
+┊• *Epic Game RPG*
+┊• *and other*
+┊
+┗––––––––––✦ *${zell}*
+`
+const templateButtons = [
+    {index: 1, urlButton: {displayText: 'Klik untuk berlangganan', url: `https://wa.me/6285756507257?text=Hallo admin, saya tertarik untuk menyewa bot ${namebot}`}},
+    {index: 4, quickReplyButton: {displayText: 'Tekan disini!', id: '.zellsewa 6285756507257|Hallo admin, saya tertarik untuk menyewa bot *Zell-MD*'}},
+]
+let tm = {
+text: text,
+footer: global.wm,
+templateButtons: templateButtons,
+image: url
+}
+conn.sendMessage(m.chat, tm, m)
+}
+handler.help = ['sewa', 'premium']
+handler.tags = ['main']
+handler.command = /^zsewabot|sewa|sewabot|sewapremium$/i
+
+export default handler

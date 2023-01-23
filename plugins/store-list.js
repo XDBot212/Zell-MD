@@ -1,0 +1,21 @@
+let handler = async (m, { conn, usedPrefix, command }) => {
+	let msgs = db.data.msgs
+	let msg = (Object.entries(msgs).map(([nama, isi]) => { return { nama, ...isi } })).map(v => v.nama)
+	let row = Object.keys(msg).map(v => ({
+		title: msg[v],
+		description: '',
+		rowId: msg[v]
+	}))
+	let button = {
+		buttonText: 'LIST STORE',
+		description: 'Daftar List Store *Zell-MD*',
+		footerText: wm
+	}
+	if (msg[0]) return await conn.sendListM(m.chat, button, row, m)
+	else throw `Belum ada store yang ada di list store!\nKetik *${usedPrefix + command} <teks>* untuk menambahkan list store.`
+}
+handler.help = ['store'].map(v => 'list' + v)
+handler.tags = ['store']
+handler.command = /^list(store|shop)?$/i
+
+export default handler
